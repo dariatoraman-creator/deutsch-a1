@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsch A1 - Grundlagen</title>
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f6fb;color:#1d2b3a;}
+header{background:#1f5fa8;color:#fff;padding:14px 18px;}
+header h1{margin:0;font-size:20px;}
+.progwrap{background:#c9d8ee;height:8px;margin-top:10px;border-radius:4px;overflow:hidden;}
+#bar{background:#ffb703;height:8px;width:0%;}
+#pt{font-size:13px;margin-top:4px;}
+.layout{display:flex;flex-wrap:wrap;min-height:80vh;}
+nav.side{width:220px;background:#fff;padding:10px;box-sizing:border-box;border-right:1px solid #dde4ef;}
+.navlink{display:block;width:100%;text-align:left;background:none;border:0;padding:10px;border-radius:8px;font-size:15px;cursor:pointer;color:#1d2b3a;}
+.navlink:hover{background:#eef3fb;}
+.navlink.on{background:#1f5fa8;color:#fff;}
+main{flex:1;padding:18px;box-sizing:border-box;min-width:0;max-width:820px;}
+.page{display:none;background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.page.active{display:block;}
+.page h2{margin-top:0;color:#1f5fa8;}
+.tr{color:#6b7a8f;font-style:italic;margin-top:-10px;}
+table{border-collapse:collapse;width:100%;margin:10px 0;}
+td,th{border-bottom:1px solid #e3e9f2;padding:8px;text-align:left;}
+th{background:#eef3fb;}
+.tip{background:#fff7e0;border-left:5px solid #ffb703;padding:10px;border-radius:8px;margin:12px 0;}
+.grid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;}
+.grid li{background:#eef3fb;padding:10px;border-radius:8px;}
+.sw{display:inline-block;width:18px;height:18px;border-radius:4px;vertical-align:middle;border:1px solid #bbb;margin-right:6px;}
+.item{background:#fafcff;border:1px solid #dde4ef;border-left:6px solid #9aa9bd;border-radius:10px;padding:12px;margin:10px 0;}
+.item p{margin:0 0 8px;font-size:17px;}
+.item.ok{border-left-color:#2e9e5b;background:#eefbf3;}
+.item.bad{border-left-color:#d64545;background:#fdeeee;}
+.item select,.item input[type=text]{font-size:16px;padding:6px;border:1px solid #9aa9bd;border-radius:6px;min-width:180px;}
+.hint{display:block;margin-top:6px;font-size:14px;}
+.item.ok .hint{color:#1e7a45;}
+.item.bad .hint{color:#b02a2a;}
+.built{min-height:44px;border-bottom:2px dashed #7d8ca3;margin-bottom:8px;display:flex;flex-wrap:wrap;gap:6px;padding-bottom:6px;}
+.pool{display:flex;flex-wrap:wrap;gap:6px;}
+.w{font-size:16px;padding:7px 12px;border:1px solid #1f5fa8;background:#fff;color:#1f5fa8;border-radius:8px;cursor:pointer;}
+.w:hover{background:#eef3fb;}
+.actions{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+button.btn,.nav button{background:#1f5fa8;color:#fff;border:0;padding:10px 16px;border-radius:8px;font-size:15px;cursor:pointer;}
+button.sec{background:#e6ecf5;color:#1d2b3a;}
+.score{font-weight:bold;margin-left:8px;}
+.nav{display:flex;justify-content:space-between;margin-top:20px;gap:8px;}
+@media (max-width:640px){nav.side{width:100%;display:flex;flex-wrap:wrap;gap:4px;}.navlink{width:auto;font-size:13px;}main{padding:10px;}}
+.form{margin-top:12px;}
+.form label{display:block;margin:10px 0;font-size:16px;}
+.form input{display:block;margin-top:4px;font-size:16px;padding:8px;border:1px solid #9aa9bd;border-radius:6px;width:100%;max-width:320px;box-sizing:border-box;}
+.err{display:block;color:#b02a2a;margin-top:10px;font-size:14px;min-height:18px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Deutsch A1 - Grundlagen</h1>
+<div class="progwrap"><div id="bar"></div></div>
+<div id="pt">0 / 5 &Uuml;bungen abgeschlossen</div>
+</header>
+
+<div class="layout">
+<nav class="side" id="side"></nav>
+<main>
+
+<section class="page" id="p0" data-title="Start">
+<h2>Willkommen!</h2>
+<p>In dieser Lektion lernst du: Begr&uuml;&szlig;ung und Verabschiedung, sich vorstellen, Zahlen 0 - 20, Wochentage, Monate, Jahreszeiten und Farben.</p>
+<p>Zuerst liest du die Theorie. Danach machst du die f&uuml;nf &Uuml;bungen. Jede &Uuml;bung hat einen Pr&uuml;fen-Knopf. Klicke darauf, um deine Antworten zu kontrollieren.</p>
+<h3>Anmeldung</h3>
+<p>Bitte f&uuml;lle das Formular aus, bevor du mit der Theorie beginnst.</p>
+<div class="form">
+<label>Name<input type="text" id="f_name"></label>
+<label>Nachname<input type="text" id="f_surname"></label>
+<label>Klasse<input type="text" id="f_class"></label>
+<button class="btn" onclick="startLesson()">Weiter</button>
+<span id="f_err" class="err"></span>
+</div>
+</section>
+
+<section class="page" id="p1" data-title="Begr&uuml;&szlig;ung">
+<h2>Begr&uuml;&szlig;ung und Verabschiedung</h2>
+<p class="tr">Greetings and farewells</p>
+<table>
+<tr><th>Deutsch</th><th>English</th></tr>
+<tr><td>Hallo!</td><td>Hello!</td></tr>
+<tr><td>Guten Morgen</td><td>Good morning</td></tr>
+<tr><td>Guten Tag</td><td>Good day</td></tr>
+<tr><td>Guten Abend</td><td>Good evening</td></tr>
+<tr><td>Gute Nacht</td><td>Good night</td></tr>
+<tr><td>Tsch&uuml;ss!</td><td>Bye!</td></tr>
+<tr><td>Auf Wiedersehen!</td><td>Goodbye!</td></tr>
+<tr><td>Bis morgen!</td><td>See you tomorrow!</td></tr>
+<tr><td>Wie geht's?</td><td>How are you?</td></tr>
+<tr><td>Gut, danke.</td><td>Fine, thanks.</td></tr>
+</table>
+<div class="tip">Tipp: Guten Morgen, Guten Tag und Guten Abend sagt man zur Begr&uuml;&szlig;ung. Gute Nacht sagt man beim Schlafengehen.</div>
+</section>
+
+<section class="page" id="p2" data-title="Kennenlernen">
+<h2>Kennenlernen und sich vorstellen</h2>
+<p class="tr">Getting to know each other and introducing yourself</p>
+<table>
+<tr><th>Deutsch</th><th>English</th></tr>
+<tr><td>Ich hei&szlig;e Mia.</td><td>My name is Mia.</td></tr>
+<tr><td>Ich bin 12 Jahre alt.</td><td>I am 12 years old.</td></tr>
+<tr><td>Ich komme aus der T&uuml;rkei.</td><td>I come from Turkey.</td></tr>
+<tr><td>Ich wohne in Antalya.</td><td>I live in Antalya.</td></tr>
+<tr><td>Ich spreche Deutsch.</td><td>I speak German.</td></tr>
+<tr><td>Wie hei&szlig;t du?</td><td>What is your name?</td></tr>
+<tr><td>Woher kommst du?</td><td>Where do you come from?</td></tr>
+<tr><td>Wo wohnst du?</td><td>Where do you live?</td></tr>
+<tr><td>Wie alt bist du?</td><td>How old are you?</td></tr>
+</table>
+<h3>Verben</h3>
+<table>
+<tr><th>Verb</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+<tr><td>hei&szlig;en</td><td>hei&szlig;e</td><td>hei&szlig;t</td><td>hei&szlig;t</td><td>hei&szlig;en</td><td>hei&szlig;t</td><td>hei&szlig;en</td></tr>
+<tr><td>sein</td><td>bin</td><td>bist</td><td>ist</td><td>sind</td><td>seid</td><td>sind</td></tr>
+<tr><td>kommen</td><td>komme</td><td>kommst</td><td>kommt</td><td>kommen</td><td>kommt</td><td>kommen</td></tr>
+<tr><td>wohnen</td><td>wohne</td><td>wohnst</td><td>wohnt</td><td>wohnen</td><td>wohnt</td><td>wohnen</td></tr>
+<tr><td>sprechen</td><td>spreche</td><td>sprichst</td><td>spricht</td><td>sprechen</td><td>sprecht</td><td>sprechen</td></tr>
+</table>
+</section>
+
+<section class="page" id="p3" data-title="Zahlen 0-20">
+<h2>Zahlen 0 - 20</h2>
+<p class="tr">Numbers from 0 to 20</p>
+<ul class="grid">
+<li>0 null</li>
+<li>1 eins</li>
+<li>2 zwei</li>
+<li>3 drei</li>
+<li>4 vier</li>
+<li>5 f&uuml;nf</li>
+<li>6 sechs</li>
+<li>7 sieben</li>
+<li>8 acht</li>
+<li>9 neun</li>
+<li>10 zehn</li>
+<li>11 elf</li>
+<li>12 zw&ouml;lf</li>
+<li>13 dreizehn</li>
+<li>14 vierzehn</li>
+<li>15 f&uuml;nfzehn</li>
+<li>16 sechzehn</li>
+<li>17 siebzehn</li>
+<li>18 achtzehn</li>
+<li>19 neunzehn</li>
+<li>20 zwanzig</li>
+</ul>
+<div class="tip">Tipp: Die Zahlen 13 bis 19 enden auf -zehn. Die Zahl 20 hei&szlig;t zwanzig.</div>
+</section>
+
+<section class="page" id="p4" data-title="Wochentage">
+<h2>Wochentage</h2>
+<p class="tr">Days of the week</p>
+<table>
+<tr><th>Deutsch</th><th>English</th></tr>
+<tr><td>Montag</td><td>Monday</td></tr>
+<tr><td>Dienstag</td><td>Tuesday</td></tr>
+<tr><td>Mittwoch</td><td>Wednesday</td></tr>
+<tr><td>Donnerstag</td><td>Thursday</td></tr>
+<tr><td>Freitag</td><td>Friday</td></tr>
+<tr><td>Samstag (Sonnabend)</td><td>Saturday</td></tr>
+<tr><td>Sonntag</td><td>Sunday</td></tr>
+</table>
+<div class="tip">Tipp: Wann? Am Montag, am Samstag. Man sagt: am + Wochentag.</div>
+</section>
+
+<section class="page" id="p5" data-title="Monate">
+<h2>Monate</h2>
+<p class="tr">Months of the year</p>
+<table>
+<tr><th>Deutsch</th><th>English</th></tr>
+<tr><td>Januar</td><td>January</td></tr>
+<tr><td>Februar</td><td>February</td></tr>
+<tr><td>M&auml;rz</td><td>March</td></tr>
+<tr><td>April</td><td>April</td></tr>
+<tr><td>Mai</td><td>May</td></tr>
+<tr><td>Juni</td><td>June</td></tr>
+<tr><td>Juli</td><td>July</td></tr>
+<tr><td>August</td><td>August</td></tr>
+<tr><td>September</td><td>September</td></tr>
+<tr><td>Oktober</td><td>October</td></tr>
+<tr><td>November</td><td>November</td></tr>
+<tr><td>Dezember</td><td>December</td></tr>
+</table>
+<div class="tip">Tipp: Wann? Im Januar, im Mai. Man sagt: im + Monat.</div>
+</section>
+
+<section class="page" id="p6" data-title="Jahreszeiten">
+<h2>Jahreszeiten</h2>
+<p class="tr">Seasons</p>
+<table>
+<tr><th>Deutsch</th><th>English</th></tr>
+<tr><td>der Fr&uuml;hling</td><td>spring</td></tr>
+<tr><td>der Sommer</td><td>summer</td></tr>
+<tr><td>der Herbst</td><td>autumn</td></tr>
+<tr><td>der Winter</td><td>winter</td></tr>
+</table>
+<p>Im Winter ist es kalt. Im Sommer ist es hei&szlig;.</p>
+<div class="tip">Tipp: im Fr&uuml;hling, im Sommer, im Herbst, im Winter.</div>
+</section>
+
+<section class="page" id="p7" data-title="Farben">
+<h2>Farben</h2>
+<p class="tr">Colours</p>
+<table>
+<tr><th>Deutsch</th><th>English</th></tr>
+<tr><td><span class="sw" style="background:#d62828"></span>rot</td><td>red</td></tr>
+<tr><td><span class="sw" style="background:#1f5fa8"></span>blau</td><td>blue</td></tr>
+<tr><td><span class="sw" style="background:#2e9e5b"></span>gr&uuml;n</td><td>green</td></tr>
+<tr><td><span class="sw" style="background:#ffd166"></span>gelb</td><td>yellow</td></tr>
+<tr><td><span class="sw" style="background:#f77f00"></span>orange</td><td>orange</td></tr>
+<tr><td><span class="sw" style="background:#7b2cbf"></span>lila</td><td>purple</td></tr>
+<tr><td><span class="sw" style="background:#ff7eb6"></span>rosa</td><td>pink</td></tr>
+<tr><td><span class="sw" style="background:#000000"></span>schwarz</td><td>black</td></tr>
+<tr><td><span class="sw" style="background:#ffffff"></span>wei&szlig;</td><td>white</td></tr>
+<tr><td><span class="sw" style="background:#8b5a2b"></span>braun</td><td>brown</td></tr>
+<tr><td><span class="sw" style="background:#888888"></span>grau</td><td>grey</td></tr>
+</table>
+<p>Der Himmel ist blau. Die Banane ist gelb.</p>
+</section>
+
+<!-- UEBUNG 1: VERBEN -->
+<section class="page" id="p8" data-title="&Uuml;bung 1: Verben">
+<h2>&Uuml;bung 1: Verben w&auml;hlen</h2>
+<p>W&auml;hle das richtige Verb aus.</p>
+
+<div class="item" data-type="select"><p>1. Ich ___ Mia.</p><select data-ans="hei&szlig;e"><option value="">-- w&auml;hlen --</option><option>hei&szlig;e</option><option>hei&szlig;t</option><option>hei&szlig;en</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>2. Ich ___ aus der T&uuml;rkei.</p><select data-ans="komme"><option value="">-- w&auml;hlen --</option><option>komme</option><option>kommst</option><option>kommt</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>3. Du ___ in Antalya.</p><select data-ans="wohnst"><option value="">-- w&auml;hlen --</option><option>wohne</option><option>wohnst</option><option>wohnt</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>4. Wir ___ Deutsch.</p><select data-ans="sprechen"><option value="">-- w&auml;hlen --</option><option>sprechen</option><option>sprecht</option><option>spreche</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>5. Er ___ elf Jahre alt.</p><select data-ans="ist"><option value="">-- w&auml;hlen --</option><option>ist</option><option>bin</option><option>bist</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>6. Ihr ___ sehr nett.</p><select data-ans="seid"><option value="">-- w&auml;hlen --</option><option>seid</option><option>sind</option><option>bist</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>7. Sie ___ Sch&uuml;ler.</p><select data-ans="sind"><option value="">-- w&auml;hlen --</option><option>sind</option><option>seid</option><option>bin</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>8. Ich ___ gern Fu&szlig;ball.</p><select data-ans="spiele"><option value="">-- w&auml;hlen --</option><option>spiele</option><option>spielst</option><option>spielt</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>9. Wir ___ am Montag in die Schule.</p><select data-ans="gehen"><option value="">-- w&auml;hlen --</option><option>gehen</option><option>geht</option><option>gehe</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>10. Du ___ gern Deutsch.</p><select data-ans="lernst"><option value="">-- w&auml;hlen --</option><option>lernst</option><option>lernt</option><option>lerne</option></select><span class="hint"></span></div>
+
+<div class="actions">
+<button class="btn" onclick="checkPage('p8')">Pr&uuml;fen</button>
+<button class="btn sec" onclick="resetPage('p8')">Zur&uuml;cksetzen</button>
+<span class="score"></span>
+</div>
+</section>
+
+<!-- UEBUNG 2: LUECKEN -->
+<section class="page" id="p9" data-title="&Uuml;bung 2: L&uuml;cken">
+<h2>&Uuml;bung 2: L&uuml;cken f&uuml;llen</h2>
+<p>Schreibe das passende Wort in die L&uuml;cke.</p>
+
+<div class="item" data-type="input"><p>1. Guten ___, Herr Schmidt!</p><input type="text" data-ans="Morgen"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>2. Ich ___ 12 Jahre alt.</p><input type="text" data-ans="bin"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>3. Wie ___ du?</p><input type="text" data-ans="hei&szlig;t"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>4. Im ___ ist es kalt.</p><input type="text" data-ans="Winter"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>5. Der Himmel ist ___.</p><input type="text" data-ans="blau"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>6. Am ___ gehe ich ins Kino.</p><input type="text" data-ans="Freitag"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>7. Im ___ ist Weihnachten.</p><input type="text" data-ans="Dezember"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>8. Zw&ouml;lf plus acht ist ___.</p><input type="text" data-ans="zwanzig"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>9. Auf ___, bis morgen!</p><input type="text" data-ans="Wiedersehen"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>10. Die Banane ist ___.</p><input type="text" data-ans="gelb"><span class="hint"></span></div>
+
+<div class="actions">
+<button class="btn" onclick="checkPage('p9')">Pr&uuml;fen</button>
+<button class="btn sec" onclick="resetPage('p9')">Zur&uuml;cksetzen</button>
+<span class="score"></span>
+</div>
+</section>
+
+<!-- UEBUNG 3: RECHTSCHREIBUNG -->
+<section class="page" id="p10" data-title="&Uuml;bung 3: Rechtschreibung">
+<h2>&Uuml;bung 3: Rechtschreibung</h2>
+<p>Welche Schreibweise ist richtig? W&auml;hle aus.</p>
+
+<div class="item" data-type="select"><p>1. Ich ___ Anna.</p><select data-ans="hei&szlig;e"><option value="">-- w&auml;hlen --</option><option>heisse</option><option>hei&szlig;e</option><option>heiss</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>2. Wie ___ du?</p><select data-ans="hei&szlig;t"><option value="">-- w&auml;hlen --</option><option>heist</option><option>hei&szlig;t</option><option>heisst</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>3. Guten ___!</p><select data-ans="Morgen"><option value="">-- w&auml;hlen --</option><option>morgen</option><option>Morgen</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>4. Ich wohne in ___.</p><select data-ans="Antalya"><option value="">-- w&auml;hlen --</option><option>antalya</option><option>Antalya</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>5. Am ___ habe ich frei.</p><select data-ans="Samstag"><option value="">-- w&auml;hlen --</option><option>samstag</option><option>Samstag</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>6. Im ___ ist es hei&szlig;.</p><select data-ans="Sommer"><option value="">-- w&auml;hlen --</option><option>sommer</option><option>Sommer</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>7. Das ___ ist gr&uuml;n.</p><select data-ans="Gras"><option value="">-- w&auml;hlen --</option><option>gras</option><option>Gras</option><option>Grass</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>8. Ich bin ___ Jahre alt.</p><select data-ans="zw&ouml;lf"><option value="">-- w&auml;hlen --</option><option>zwolf</option><option>zw&ouml;lf</option><option>zwoelf</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>9. Der Himmel ist ___.</p><select data-ans="blau"><option value="">-- w&auml;hlen --</option><option>Blau</option><option>blau</option></select><span class="hint"></span></div>
+<div class="item" data-type="select"><p>10. ___ ist der erste Monat.</p><select data-ans="Januar"><option value="">-- w&auml;hlen --</option><option>januar</option><option>Januar</option></select><span class="hint"></span></div>
+
+<div class="actions">
+<button class="btn" onclick="checkPage('p10')">Pr&uuml;fen</button>
+<button class="btn sec" onclick="resetPage('p10')">Zur&uuml;cksetzen</button>
+<span class="score"></span>
+</div>
+</section>
+
+<!-- UEBUNG 4: WORTSTELLUNG -->
+<section class="page" id="p11" data-title="&Uuml;bung 4: Wortstellung">
+<h2>&Uuml;bung 4: Wortstellung</h2>
+<p>Klicke die W&ouml;rter in der richtigen Reihenfolge an. Ein Wort zur&uuml;ck legst du an, indem du es oben anklickst.</p>
+
+<div class="item" data-type="order" data-ans="Ich hei&szlig;e Mia."><p>1.</p><div class="built"></div><div class="pool"><button class="w">Mia.</button><button class="w">hei&szlig;e</button><button class="w">Ich</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Ich wohne in Antalya."><p>2.</p><div class="built"></div><div class="pool"><button class="w">Antalya.</button><button class="w">wohne</button><button class="w">in</button><button class="w">Ich</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Woher kommst du?"><p>3.</p><div class="built"></div><div class="pool"><button class="w">du?</button><button class="w">kommst</button><button class="w">Woher</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Ich gehe am Montag ins Kino."><p>4.</p><div class="built"></div><div class="pool"><button class="w">ins</button><button class="w">Kino.</button><button class="w">Ich</button><button class="w">am</button><button class="w">Montag</button><button class="w">gehe</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Im Winter ist es kalt."><p>5.</p><div class="built"></div><div class="pool"><button class="w">kalt.</button><button class="w">ist</button><button class="w">Winter</button><button class="w">es</button><button class="w">Im</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Wie alt bist du?"><p>6.</p><div class="built"></div><div class="pool"><button class="w">du?</button><button class="w">bist</button><button class="w">alt</button><button class="w">Wie</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Ich spiele gern Fu&szlig;ball."><p>7.</p><div class="built"></div><div class="pool"><button class="w">Fu&szlig;ball.</button><button class="w">gern</button><button class="w">spiele</button><button class="w">Ich</button></div><span class="hint"></span></div>
+<div class="item" data-type="order" data-ans="Ich bin zw&ouml;lf Jahre alt."><p>8.</p><div class="built"></div><div class="pool"><button class="w">alt.</button><button class="w">Jahre</button><button class="w">zw&ouml;lf</button><button class="w">bin</button><button class="w">Ich</button></div><span class="hint"></span></div>
+
+<div class="actions">
+<button class="btn" onclick="checkPage('p11')">Pr&uuml;fen</button>
+<button class="btn sec" onclick="resetPage('p11')">Zur&uuml;cksetzen</button>
+<span class="score"></span>
+</div>
+</section>
+
+<!-- UEBUNG 5: FRAGEN -->
+<section class="page" id="p12" data-title="&Uuml;bung 5: Fragen">
+<h2>&Uuml;bung 5: Fragen bilden</h2>
+<p>Schreibe zu jedem Satz die passende Frage. Beispiel: Ich hei&szlig;e Mia. - Wie hei&szlig;t du?</p>
+
+<div class="item" data-type="input" data-ans="Wie hei&szlig;t du?"><p>1. Ich hei&szlig;e Mia.</p><input type="text" data-ans="Wie hei&szlig;t du?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>2. Ich komme aus der T&uuml;rkei.</p><input type="text" data-ans="Woher kommst du?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>3. Ich wohne in Antalya.</p><input type="text" data-ans="Wo wohnst du?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>4. Ich bin zw&ouml;lf Jahre alt.</p><input type="text" data-ans="Wie alt bist du?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>5. Ich bin am Samstag frei.</p><input type="text" data-ans="Wann bist du frei?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>6. Heute ist Dienstag.</p><input type="text" data-ans="Welcher Tag ist heute?|Welcher Wochentag ist heute?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>7. Ich spreche Deutsch.</p><input type="text" data-ans="Welche Sprache sprichst du?|Was sprichst du?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>8. Die Farbe ist rot.</p><input type="text" data-ans="Welche Farbe ist das?|Welche Farbe hat das?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>9. Ich esse gern Pizza.</p><input type="text" data-ans="Was isst du gern?|Was isst du gerne?"><span class="hint"></span></div>
+<div class="item" data-type="input"><p>10. Ich gehe am Montag ins Kino.</p><input type="text" data-ans="Wann gehst du ins Kino?"><span class="hint"></span></div>
+
+<div class="actions">
+<button class="btn" onclick="checkPage('p12')">Pr&uuml;fen</button>
+<button class="btn sec" onclick="resetPage('p12')">Zur&uuml;cksetzen</button>
+<span class="score"></span>
+</div>
+</section>
+
+</main>
+</div>
+
+<script>
+var done = {};
+var exIds = ['p8', 'p9', 'p10', 'p11', 'p12'];
+var student = null;
+var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfCqzFFA867IXX1rgcD8W1PJ8m6MX3jvnymG_kijGTxZXUbZA/formResponse';
+var ENTRY = {
+  name: 'entry.1743804077',
+  surname: 'entry.2060042404',
+  cls: 'entry.1949906804',
+  exercise: 'entry.1190495231',
+  score: 'entry.598349167'
+};
+
+function addField(f, name, value) {
+  var i = document.createElement('input');
+  i.type = 'hidden';
+  i.name = name;
+  i.value = value;
+  f.appendChild(i);
+}
+
+function sendRow(exTitle, scoreText) {
+  if (!student) { return; }
+  var body = ENTRY.name + '=' + encodeURIComponent(student.name) +
+    '&' + ENTRY.surname + '=' + encodeURIComponent(student.surname) +
+    '&' + ENTRY.cls + '=' + encodeURIComponent(student.cls) +
+    '&' + ENTRY.exercise + '=' + encodeURIComponent(exTitle) +
+    '&' + ENTRY.score + '=' + encodeURIComponent(scoreText);
+  if (typeof fetch === 'function') {
+    fetch(FORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).catch(function () { });
+  }
+}
+
+function startLesson() {
+  var nm = document.getElementById('f_name').value.replace(/^\s+|\s+$/g, '');
+  var sn = document.getElementById('f_surname').value.replace(/^\s+|\s+$/g, '');
+  var cl = document.getElementById('f_class').value.replace(/^\s+|\s+$/g, '');
+  if (nm === '' || sn === '' || cl === '') {
+    document.getElementById('f_err').textContent = 'Bitte alle Felder ausf\u00fcllen.';
+    return;
+  }
+  student = { name: nm, surname: sn, cls: cl };
+  document.getElementById('f_err').textContent = '';
+  go(1);
+}
+
+function norm(s) {
+  s = (s || '').toLowerCase();
+  s = s.replace(/\u00e4/g, 'ae').replace(/\u00f6/g, 'oe').replace(/\u00fc/g, 'ue').replace(/\u00df/g, 'ss');
+  s = s.replace(/[.,!?;:'"]/g, '');
+  s = s.replace(/\s+/g, ' ');
+  return s.replace(/^\s+|\s+$/g, '');
+}
+
+function answerOf(it) {
+  var type = it.getAttribute('data-type');
+  if (type === 'input') {
+    return it.getElementsByTagName('input')[0].getAttribute('data-ans').split('|')[0];
+  }
+  return it.getAttribute('data-ans') || it.getElementsByTagName('select')[0].getAttribute('data-ans');
+}
+
+function checkItem(it) {
+  var type = it.getAttribute('data-type');
+  var i, s, inp, alts, v, built, parts;
+  if (type === 'select') {
+    s = it.getElementsByTagName('select')[0];
+    return s.value === s.getAttribute('data-ans');
+  }
+  if (type === 'input') {
+    inp = it.getElementsByTagName('input')[0];
+    v = norm(inp.value);
+    if (v === '') { return false; }
+    alts = inp.getAttribute('data-ans').split('|');
+    for (i = 0; i < alts.length; i++) {
+      if (norm(alts[i]) === v) { return true; }
+    }
+    return false;
+  }
+  if (type === 'order') {
+    built = it.getElementsByClassName('built')[0];
+    parts = [];
+    for (i = 0; i < built.childNodes.length; i++) {
+      parts.push(built.childNodes[i].textContent);
+    }
+    return parts.join(' ') === it.getAttribute('data-ans');
+  }
+  return false;
+}
+
+function updateProgress() {
+  var c = 0, i;
+  for (i = 0; i < exIds.length; i++) {
+    if (done[exIds[i]]) { c++; }
+  }
+  document.getElementById('bar').style.width = (c / exIds.length * 100) + '%';
+  document.getElementById('pt').textContent = c + ' / ' + exIds.length + ' \u00dcbungen abgeschlossen';
+}
+
+function checkPage(pid) {
+  var page = document.getElementById(pid);
+  var items = page.getElementsByClassName('item');
+  var ok = 0, i, res, hint;
+  for (i = 0; i < items.length; i++) {
+    res = checkItem(items[i]);
+    items[i].className = 'item ' + (res ? 'ok' : 'bad');
+    hint = items[i].getElementsByClassName('hint')[0];
+    if (hint) {
+      hint.textContent = res ? 'Richtig!' : 'Richtig w\u00e4re: ' + answerOf(items[i]);
+    }
+    if (res) { ok++; }
+  }
+  page.getElementsByClassName('score')[0].textContent = 'Ergebnis: ' + ok + ' / ' + items.length + (ok === items.length ? ' - Sehr gut!' : '');
+  done[pid] = (ok === items.length);
+  updateProgress();
+  sendRow(page.getAttribute('data-title'), ok + ' / ' + items.length);
+}
+
+function resetPage(pid) {
+  var page = document.getElementById(pid);
+  var items = page.getElementsByClassName('item');
+  var i, it, type, built, pool, hint;
+  for (i = 0; i < items.length; i++) {
+    it = items[i];
+    type = it.getAttribute('data-type');
+    if (type === 'select') {
+      it.getElementsByTagName('select')[0].selectedIndex = 0;
+    } else if (type === 'input') {
+      it.getElementsByTagName('input')[0].value = '';
+    } else if (type === 'order') {
+      built = it.getElementsByClassName('built')[0];
+      pool = it.getElementsByClassName('pool')[0];
+      while (built.childNodes.length > 0) {
+        pool.appendChild(built.childNodes[0]);
+      }
+    }
+    it.className = 'item';
+    hint = it.getElementsByClassName('hint')[0];
+    if (hint) { hint.textContent = ''; }
+  }
+  page.getElementsByClassName('score')[0].textContent = '';
+  done[pid] = false;
+  updateProgress();
+}
+
+function go(n) {
+  if (n > 0 && !student) {
+    document.getElementById('f_err').textContent = 'Bitte zuerst das Formular ausf\u00fcllen.';
+    n = 0;
+  }
+  var secs = document.getElementsByClassName('page');
+  var links = document.getElementsByClassName('navlink');
+  var i;
+  for (i = 0; i < secs.length; i++) {
+    secs[i].className = (i === n) ? 'page active' : 'page';
+    links[i].className = (i === n) ? 'navlink on' : 'navlink';
+  }
+  window.scrollTo(0, 0);
+}
+
+function mkBtn(label, n) {
+  var b = document.createElement('button');
+  b.textContent = label;
+  b.onclick = function () { go(n); };
+  return b;
+}
+
+document.addEventListener('click', function (e) {
+  var t = e.target;
+  var par, item, built, pool;
+  if (t && t.tagName === 'BUTTON' && t.className === 'w') {
+    par = t.parentNode;
+    item = par.parentNode;
+    built = item.getElementsByClassName('built')[0];
+    pool = item.getElementsByClassName('pool')[0];
+    if (par === pool) {
+      built.appendChild(t);
+    } else {
+      pool.appendChild(t);
+    }
+  }
+});
+
+(function init() {
+  var secs = document.getElementsByClassName('page');
+  var side = document.getElementById('side');
+  var i, b, nv, n = secs.length;
+  for (i = 0; i < n; i++) {
+    b = document.createElement('button');
+    b.className = 'navlink';
+    b.textContent = secs[i].getAttribute('data-title');
+    b.onclick = (function (k) { return function () { go(k); }; })(i);
+    side.appendChild(b);
+    nv = document.createElement('div');
+    nv.className = 'nav';
+    if (i > 0) {
+      nv.appendChild(mkBtn('\u2190 Zur\u00fcck', i - 1));
+    } else {
+      nv.appendChild(document.createElement('span'));
+    }
+    if (i > 0 && i < n - 1) {
+      nv.appendChild(mkBtn('Weiter \u2192', i + 1));
+    }
+    secs[i].appendChild(nv);
+  }
+  go(0);
+  updateProgress();
+})();
+</script>
+
+<iframe name="sink" style="display:none"></iframe>
+</body>
+</html>
